@@ -1,0 +1,65 @@
+<mat-toolbar color="primary" style="margin-bottom: 2rem">
+  Control Flows
+</mat-toolbar>
+<main style="padding: 1rem">
+  <mat-card color="accent">
+    <mat-card-content>
+      <div style="margin-bottom: 1rem">
+        Since Angular 17 uses the {{ "@" }} annotation for control flows, if we
+        want to render an email string in the html template we must use
+        {{ htmlAt }} rather than {{ "@" }}
+      </div>
+
+      <p style="margin-bottom: 1rem"><strong>Example if blocks </strong></p>
+      <div>&#64;if {{ "{}" }} blocks</div>
+
+      @if (a > b) {
+        {{ a }} is greater than {{ b }}
+      } @else if (b > a) {
+        {{ a }} is less than {{ b }}
+      } @else {
+        {{ a }} is equal to {{ b }}
+      }
+
+      <div style="margin: 20px 0"></div>
+      <div>&#64;for {{ "{}" }} blocks</div>
+
+      @for (a of alphas; track $index) {
+        <div>
+          {{ a }} Index: {{ $index }} Count:{{ $count }} Last: {{ $last }} First
+          {{ $first }} Odd: {{ $odd }} Even: {{ $even }}
+        </div>
+      } @empty {
+        No items available
+      }
+
+      <div style="margin-top: 15px">
+        @for (o of objs; track o.id) {
+          <span>{{ o.name }}</span> &nbsp;
+        } @empty {
+          No items available
+        }
+      </div>
+
+      <div style="margin: 20px 0"></div>
+      <div>&#64;switch {{ "{}" }} blocks</div>
+
+      <div>
+        @switch (myColour) {
+          @case ("black") {
+            Black
+          }
+          @case ("green") {
+            Green
+          }
+          @case ("red") {
+            Red
+          }
+          @default {
+            Default case.
+          }
+        }
+      </div>
+    </mat-card-content>
+  </mat-card>
+</main>

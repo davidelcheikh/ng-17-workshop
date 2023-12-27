@@ -1,0 +1,13 @@
+<mat-toolbar> Signal Store </mat-toolbar>
+
+<mat-card>
+  <mat-card-content>
+    <h1>Counter (signalStore)</h1>
+
+    <p>Count: {{ store.count() }}</p>
+    <p>Double Count: {{ store.doubleCount() }}</p>
+
+    <button (click)="store.increment()">Increment</button>
+    <button (click)="store.decrement()">Decrement</button>
+  </mat-card-content>
+</mat-card>

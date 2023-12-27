@@ -1,0 +1,28 @@
+<mat-toolbar color="primary" style="margin-bottom: 2rem"> Signals </mat-toolbar>
+<main style="padding: 1rem">
+  <mat-card color="accent">
+    <mat-card-content>
+      <mat-card-subtitle>Signals Values</mat-card-subtitle>
+      <div class="d-flex">
+        <div>
+          <h5 style="margin-bottom: 0">Name</h5>
+          <p>First Name: {{ firstName() }}</p>
+          <p>Last Name: {{ lastName() }}</p>
+
+          <p>Age: {{ age() }}</p>
+          <p>Full Name: {{ fullName() }}</p>
+          <p>Is Adult (over 18): {{ isAdult() }}</p>
+        </div>
+        @if (age() > 12) {
+          <button mat-raised-button color="primary" (click)="changeAge(12)">
+            Change Age to 12
+          </button>
+        } @else if (age() < 18) {
+          <button mat-raised-button color="primary" (click)="changeAge(18)">
+            Change Age to 18
+          </button>
+        }
+      </div>
+    </mat-card-content>
+  </mat-card>
+</main>
