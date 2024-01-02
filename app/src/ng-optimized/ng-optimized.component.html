@@ -1,10 +1,48 @@
 <img
-  [ngSrc]="'./assets/logo.png'"
+  ngSrc="./assets/logo.png"
   priority
-  alt="Campion Logo"
   width="360"
   height="180"
-  class="logo cursor-pointer"
-  fill
+  alt=""
   sizes="(max-width: 768px) 100vw, 50vw"
 />
+
+<!-- Parent Div must have with position: "relative", position: "fixed", or position: "absolute" -->
+<div>
+  <img alt="" ngSrc="./assets/logo.png" priority fill />
+</div>
+
+<!-- srcSet NG way -->
+<div>
+  <img
+    alt=""
+    ngSrc="./assets/logo.png"
+    priority
+    ngSrcset="logo-100.png 100w, logo-200.png 200w, logo-300.png 300w"
+    sizes="50vw"
+    width="360"
+    height="180"
+  />
+</div>
+
+<!-- srcSet NG way -->
+
+<div>
+  <img
+    alt=""
+    ngSrc="./assets/logo.png"
+    priority
+    ngSrcset="100w, 200w, 300w"
+    sizes="50vw"
+    width="360"
+    height="180"
+  />
+</div>
+
+<!--
+By default, NgOptimizedImage sets loading=lazy for all images that are not marked priority.
+You can disable this behavior for non-priority images by setting the loading attribute.
+This attribute accepts values: eager, auto, and lazy
+-->
+
+<img ngSrc="./assets/logo.png" width="1500" height="750" loading="eager" />
