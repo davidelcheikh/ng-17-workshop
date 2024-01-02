@@ -5,6 +5,8 @@ import { inject } from '@angular/core';
 import { ControlFlowsComponent } from '../control-flows/control-flows.component';
 import { DeferrableViewsComponent } from '../deferrable-views/deferrable-views.component';
 import { SignalStoreComponent } from '../signal-store/signal-store.component';
+import { LuxonVsMomentComponent } from '../luxon-vs-moment/luxon-vs-moment.component';
+import { NgOptimizedComponent } from '../ng-optimized/ng-optimized.component';
 
 export const appRoutes: Routes = [
   {
@@ -29,6 +31,14 @@ export const appRoutes: Routes = [
   {
     path: 'store',
     component: SignalStoreComponent,
+  },
+  {
+    path: 'date-time',
+    component: LuxonVsMomentComponent,
+  },
+  {
+    path: 'optimised-img',
+    component: NgOptimizedComponent,
   },
 ];
 

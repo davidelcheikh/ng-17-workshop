@@ -11,13 +11,13 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { interval } from 'rxjs';
 
 export const CounterStore = signalStore(
-  { providedIn: 'root' },
   withState({ count: 0 }),
   withComputed(({ count }) => ({
     doubleCount: computed(() => count() * 2),
   })),
   withMethods(({ count, ...store }) => ({
     increment() {
+      // service call
       patchState(store, { count: count() + 1 });
     },
     decrement() {

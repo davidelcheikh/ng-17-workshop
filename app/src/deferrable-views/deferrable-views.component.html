@@ -4,6 +4,8 @@
     <app-large-component></app-large-component>
   } @placeholder {
     <img src="https://placehold.co/200x200" />
+  } @loading {
+    Loading...
   }
 </div>
 
@@ -17,7 +19,7 @@
 </div>
 
 <div>
-  @defer (on timer(5s)) {
+  @defer (on timer(500s)) {
     <app-large-component></app-large-component>
   } @placeholder {
     <img src="https://placehold.co/200x200" />
@@ -39,7 +41,7 @@
 
 <div #greeting>Hello!</div>
 
-@defer (on viewport(greeting)) {
+@defer (on interaction(greeting)) {
   <app-large-component></app-large-component>
 }
 
@@ -47,4 +49,6 @@
   <app-large-component></app-large-component>
 } @placeholder {
   <img src="https://placehold.co/200x200" />
+} @error {
+  Errors
 }

@@ -1,0 +1,70 @@
+<mat-toolbar color="primary" style="margin-bottom: 2rem">
+  Date Time (Moment vs Luxon)
+</mat-toolbar>
+<main style="padding: 1rem">
+  <mat-card>
+    <mat-card-content>
+      <h3>Immutability</h3>
+      Moment.js object are mutable
+      <pre>var m1 = moment();</pre>
+      <pre>var m2 = m1.add(1, 'hours');</pre>
+      <pre>m1.valueOf() === m2.valueOf(); // true</pre>
+
+      Luxon objects are immutable
+      <pre>var d1 = DateTime.now();</pre>
+      <pre>var d2 = {{ "d1.plus({hours: 1});" }}</pre>
+      <pre>d1.valueOf() === d2.valueOf(); // false</pre>
+    </mat-card-content>
+  </mat-card>
+</main>
+<main style="padding: 1rem; display: flex; align-items: center">
+  <mat-card style="width: 100%; margin-right: 10px" color="accent">
+    <mat-card-content>
+      <h4>The Luxon Way</h4>
+      <p>Date Time Now:</p>
+      <pre>DateTime.now(): {{ currentLuxonDate }}</pre>
+      <p>Format dd/mm/yyyy</p>
+      <pre>
+DateTime.now().toFormat('dd/mm/yyyy'): {{ formattedLuxonDateTime }}</pre
+      >
+      <h4>Luxon access the property directly</h4>
+      <pre>var now = DateTime.now();</pre>
+      <pre>var year = now.year</pre>
+      <pre>var month = now.month</pre>
+      <pre>var day = now.date</pre>
+
+      <h4>Comparisons</h4>
+      <pre>var now = DateTime.now();</pre>
+      <pre>var tomorrow = {{ "now.plus({days: 1});" }}</pre>
+      <pre>var yesterday = {{ "now.minus({days: 1});" }}</pre>
+
+      <pre>var tomorrow = {{ "now.plus({days: 1});" }}</pre>
+      <pre>var isBefore = now < tomorrow; //true</pre>
+      <pre>var isSameOrBefore = now <= tomorrow; //also true</pre>
+    </mat-card-content>
+  </mat-card>
+  <mat-card style="width: 100%; margin-right: 10px" color="accent">
+    <mat-card-content>
+      <h4>The Moment Way</h4>
+      <p>Date Time Now:</p>
+      <pre>moment(): {{ currentDateMoment }}</pre>
+      <p>Format dd/mm/yyyy</p>
+      <pre>moment().format('DD/mm/yyyy'): {{ formattedMomentDateTime }}</pre>
+
+      <h4>Moment uses getters</h4>
+      <pre>var now = moment();</pre>
+      <pre>var year = now.year();</pre>
+      <pre>var month = now.month();</pre>
+      <pre>var day = now.date();</pre>
+
+      <h4>Comparisons</h4>
+      <pre>var now = moment();</pre>
+      <pre>var tomorrow = now.add(1, 'day');</pre>
+      <pre>var yesterday = now.subtract(1, 'day');</pre>
+
+      <pre>var tomorrow = now.add(1, 'day');</pre>
+      <pre>var isBefore = now.isBefore(tomorrow); //true</pre>
+      <pre>var isSameOrBefore = now.isSameOrBefore(tomorrow); //also true</pre>
+    </mat-card-content>
+  </mat-card>
+</main>

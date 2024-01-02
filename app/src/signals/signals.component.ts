@@ -28,7 +28,7 @@ import { CommonModule } from '@angular/common';
 export class SignalsComponent {
   height = 180;
 
-  firstName: WritableSignal<string> = signal('John');
+  firstName = signal('John');
   lastName: Signal<string> = signal('Doe');
   age = signal(30);
 
@@ -46,7 +46,7 @@ export class SignalsComponent {
 
   $age = effect(() => {
     // Cannot set a signal in an effect to avoid infinite loops
-    // this.age.set(100);
+    this.lastName();
     console.log(`The count is: ${this.age()}`);
   });
 
