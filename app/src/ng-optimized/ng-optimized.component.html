@@ -1,7 +1,7 @@
 <img
   ngSrc="./assets/logo.png"
   priority
-  width="360"
+  width="500"
   height="180"
   alt=""
   sizes="(max-width: 768px) 100vw, 50vw"
@@ -12,13 +12,13 @@
   <img alt="" ngSrc="./assets/logo.png" priority fill />
 </div>
 
-<!-- srcSet NG way -->
+<!-- srcSet html way -->
 <div>
   <img
     alt=""
     ngSrc="./assets/logo.png"
     priority
-    ngSrcset="logo-100.png 100w, logo-200.png 200w, logo-300.png 300w"
+    srcset="logo-100.png 100w, logo-200.png 200w, logo-300.png 300w"
     sizes="50vw"
     width="360"
     height="180"
@@ -45,4 +45,4 @@ You can disable this behavior for non-priority images by setting the loading att
 This attribute accepts values: eager, auto, and lazy
 -->
 
-<img ngSrc="./assets/logo.png" width="1500" height="750" loading="eager" />
+<img ngSrc="./assets/logo.png" width="1500" height="750" loading="lazy" />
